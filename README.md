@@ -34,7 +34,9 @@ workshop3-team-dev/
 所要 20〜30分です。詰まったら遠慮なく講師に連絡してください。
 
 ### ゴール
-`members/` フォルダに **自分の名前のファイル** を作って、GitHubに反映させる。
+`members/` フォルダに **自分のGitHubユーザー名またはニックネームのファイル** を作って、GitHubに反映させる。
+
+> ⚠️ このリポジトリはpublicです。氏名、部署名、メールアドレスなどの個人情報・社内情報は書かないでください。
 
 ### 手順
 
@@ -45,18 +47,18 @@ workshop3-team-dev/
 2. **Gitをインストールする**
 3. **GitHub CLI で認証する** — `gh auth login`
 4. **このリポジトリを自分のPCに取ってくる（clone）**
-5. **`members/` に自分の名前のファイルを作る**
+5. **`members/` に自分のGitHubユーザー名またはニックネームのファイルを作る**
 6. **変更を記録して、GitHubに送る（commit → push）**
 
 ### 手順5〜6のコマンド例
 
 ```bash
-# 自分の名前でファイルを作る（例：yamada）
-echo "山田太郎 / 営業部 / よろしくお願いします" > members/yamada.md
+# GitHubユーザー名またはニックネームでファイルを作る（例：github-user）
+echo "github-user / よろしくお願いします" > members/github-user.md
 
 # 変更を記録して送る
-git add members/yamada.md
-git commit -m "add: 山田のメンバーファイルを追加"
+git add members/github-user.md
+git commit -m "add: github-userのメンバーファイルを追加"
 git push
 ```
 
