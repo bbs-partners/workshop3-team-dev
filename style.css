@@ -1,0 +1,130 @@
+/* ==========================================================
+   会議室予約システム — スタイル
+   第3回研修「チーム開発」練習用
+   ========================================================== */
+
+:root {
+  --dark: #0F3D44;
+  --primary: #028090;
+  --secondary: #02C39A;
+  --warm: #E76F51;
+  --bg: #F8F9FA;
+  --card: #FFFFFF;
+  --text: #1A2B32;
+  --muted: #64748B;
+  --border: #D9E2E5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ---------- ヘッダー ---------- */
+.header {
+  background: var(--dark);
+  color: #fff;
+  padding: 28px 0;
+}
+.header__inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.header__title { font-size: 24px; font-weight: 700; }
+.header__sub { font-size: 13px; color: var(--secondary); margin-top: 4px; }
+
+/* ---------- レイアウト ---------- */
+.main { max-width: 900px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(15, 61, 68, 0.08);
+}
+.card__title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-left: 10px;
+  border-left: 4px solid var(--primary);
+}
+
+/* ---------- フォーム ---------- */
+.form { display: grid; gap: 14px; }
+.form__row { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 12px; }
+.form__label { font-size: 13px; font-weight: 700; color: var(--muted); }
+.form__input {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+}
+.form__input:focus { outline: 2px solid var(--secondary); outline-offset: 1px; }
+
+/* ---------- ボタン ---------- */
+.btn {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn:hover { opacity: 0.85; }
+.btn--primary { background: var(--primary); color: #fff; }
+.btn--danger { background: var(--warm); color: #fff; padding: 6px 12px; font-size: 12px; }
+
+/* ---------- メッセージ ---------- */
+.message { font-size: 13px; min-height: 20px; font-weight: 700; }
+.message--error { color: var(--warm); }
+.message--success { color: var(--primary); }
+
+/* ---------- 予約一覧 ---------- */
+.list { display: grid; gap: 10px; }
+
+.reservation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+.reservation__main { display: flex; flex-direction: column; gap: 2px; }
+.reservation__room { font-weight: 700; font-size: 14px; }
+.reservation__time { font-size: 13px; color: var(--muted); }
+.reservation__user { font-size: 12px; color: var(--muted); }
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  padding: 30px 0;
+}
+
+/* ---------- フッター ---------- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- スマホ対応 ---------- */
+@media (max-width: 600px) {
+  .form__row { grid-template-columns: 1fr; gap: 4px; }
+  .reservation { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* ==========================================================
+   TODO-3: ダークモード用のスタイルをここに追加する（担当：Cさん）
+   ========================================================== */

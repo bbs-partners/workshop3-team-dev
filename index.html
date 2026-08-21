@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会議室予約システム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__title">会議室予約システム</h1>
+      <p class="header__sub">第2回研修で要件定義したアプリです</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- ========== 予約フォーム ========== -->
+    <section class="card">
+      <h2 class="card__title">新規予約</h2>
+      <div class="form">
+        <div class="form__row">
+          <label class="form__label" for="room">会議室</label>
+          <select id="room" class="form__input">
+            <option value="第1会議室">第1会議室（大・20名）</option>
+            <option value="第2会議室">第2会議室（中・10名）</option>
+            <option value="第3会議室">第3会議室（小・6名）</option>
+          </select>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="date">日付</label>
+          <input type="date" id="date" class="form__input">
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="startTime">開始</label>
+          <select id="startTime" class="form__input"></select>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="endTime">終了</label>
+          <select id="endTime" class="form__input"></select>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="user">予約者</label>
+          <input type="text" id="user" class="form__input" placeholder="山田太郎">
+        </div>
+        <button id="reserveBtn" class="btn btn--primary">予約する</button>
+        <p id="message" class="message"></p>
+      </div>
+    </section>
+
+    <!-- ========== 予約一覧 ========== -->
+    <!--
+      ⚠️ ワーク①（事故を体験する）では、全員がこのセクションを編集します。
+         各自が別々の変更を加えてpushすると、必ず衝突（コンフリクト）が起きます。
+         それが今日の最初の学びです。
+    -->
+    <section class="card">
+      <h2 class="card__title">予約一覧</h2>
+
+      <!-- TODO-1: ここに「検索ボックス」を追加する（担当：Aさん） -->
+
+      <!-- TODO-2: ここに「会議室で絞り込むフィルター」を追加する（担当：Bさん） -->
+
+      <div id="reservationList" class="list">
+        <!-- JavaScriptで予約カードが描画されます -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>i-kigai AI Workshop Series #3 — チーム開発練習用アプリ</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
