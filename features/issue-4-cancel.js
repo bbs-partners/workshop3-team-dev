@@ -14,6 +14,31 @@
 (function registerFeature(root) {
   root.WorkshopFeatures = root.WorkshopFeatures || {};
   root.WorkshopFeatures['issue-4'] = function setupIssue4(app) {
-    // TODO：ここにIssue #4の実装を書く
+    const cancelledReservations = [];
+
+    app.registerReservationAction('issue-4', function buildCancelAction(reservation) {
+      return {
+        label: 'キャンセル',
+        className: 'btn btn--danger',
+        onClick(target) {
+          const inputName = prompt('本人確認のため、予約者名を入力してください');
+          if (inputName === null) return;
+          if (inputName.trim() !== target.user) {
+            showMessage('予約者名が一致しないため、キャンセルできません', 'error');
+            return;
+          }
+
+          const confirmed = confirm(
+            `${target.room}　${target.date} ${target.start}〜${target.end} の予約を本当にキャンセルしますか？`
+          );
+          if (!confirmed) return;
+
+          if (app.removeReservation(target.id)) {
+            cancelledReservations.push({ ...target, cancelledAt: new Date().toISOString() });
+            showMessage('予約をキャンセルしました', 'success');
+          }
+        },
+      };
+    });
   };
 })(typeof window !== 'undefined' ? window : globalThis);
