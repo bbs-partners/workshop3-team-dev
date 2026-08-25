@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -29,5 +31,21 @@ jobs:
       - name: Validate static files
         run: python scripts/validate_static.py
 
+      - name: Run repository contract tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Run core contract tests
+        run: node --test tests/core-contract.test.js
+
       - name: Check JavaScript syntax
-        run: node --check app.js
+        run: |
+          node --check app.js
+          for file in features/*.js; do node --check "$file"; done
+
+      - name: Check team file scope
+        if: github.event_name == 'pull_request'
+        run: |
+          python scripts/check_pr_scope.py \
+            --branch "${{ github.head_ref }}" \
+            --base "${{ github.event.pull_request.base.sha }}" \
+            --head "${{ github.event.pull_request.head.sha }}"

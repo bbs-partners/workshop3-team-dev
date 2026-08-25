@@ -5,7 +5,16 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-REQUIRED_FILES = ("index.html", "style.css", "app.js")
+REQUIRED_FILES = (
+    "index.html",
+    "style.css",
+    "app.js",
+    "features/issue-1-search.js",
+    "features/issue-2-room-filter.js",
+    "features/issue-3-dark-mode.js",
+    "features/issue-4-cancel.js",
+    "features/issue-5-monthly-count.js",
+)
 
 
 class SiteParser(HTMLParser):

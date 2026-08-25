@@ -35,12 +35,15 @@ jobs:
         run: python scripts/validate_static.py
 
       - name: Check JavaScript syntax
-        run: node --check app.js
+        run: |
+          node --check app.js
+          for file in features/*.js; do node --check "$file"; done
 
       - name: Build public artifact
         run: |
           mkdir -p dist
           cp index.html style.css app.js dist/
+          cp -R features dist/features
           touch dist/.nojekyll
 
       - name: Configure GitHub Pages
