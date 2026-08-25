@@ -120,3 +120,6 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// Rehearsal only: intentional syntax error to verify CI failure.
+const rehearsalSyntaxError = ;
