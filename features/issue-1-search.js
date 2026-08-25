@@ -1,6 +1,7 @@
 /*
  * Issue #1：予約を名前で検索できるようにする
  * 担当：Aチーム
+ * 指定ブランチ：feature/issue-1-search
  *
  * 完了条件：Issue本文の動作をブラウザで確認できること。
  * 編集範囲：features/issue-1-search.js

@@ -139,7 +139,7 @@ function renderList() {
   }
   listEl.innerHTML = sorted.map(r => {
     const actions = workshopApp.getReservationActions(r).map(action =>
-      `<button class="${escapeHtml(action.className || 'btn btn--danger')}" data-action="${escapeHtml(action.name)}" data-reservation-id="${r.id}">${escapeHtml(action.label)}</button>`
+      `<button class="${escapeHtml(action.className || 'btn btn--danger')}" data-action="${escapeHtml(action.name)}" data-reservation-id="${escapeHtml(r.id)}">${escapeHtml(action.label)}</button>`
     ).join('');
     return `<div class="reservation">
       <div class="reservation__main">

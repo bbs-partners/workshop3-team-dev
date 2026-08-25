@@ -41,9 +41,13 @@ jobs:
 
       - name: Build public artifact
         run: |
-          mkdir -p dist
+          mkdir -p dist/features
           cp index.html style.css app.js dist/
-          cp -R features dist/features
+          cp features/issue-1-search.js dist/features/
+          cp features/issue-2-room-filter.js dist/features/
+          cp features/issue-3-dark-mode.js dist/features/
+          cp features/issue-4-cancel.js dist/features/
+          cp features/issue-5-monthly-count.js dist/features/
           touch dist/.nojekyll
 
       - name: Configure GitHub Pages

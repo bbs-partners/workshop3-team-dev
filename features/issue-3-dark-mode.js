@@ -1,6 +1,7 @@
 /*
  * Issue #3：ダークモードを付ける
  * 担当：Cチーム
+ * 指定ブランチ：feature/issue-3-dark-mode
  *
  * 完了条件：Issue本文の動作をブラウザで確認できること。
  * 編集範囲：features/issue-3-dark-mode.js

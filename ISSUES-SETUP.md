@@ -31,6 +31,9 @@ gh issue create --title "予約を名前で検索できるようにする" --bod
 ## 触るファイル
 features/issue-1-search.js だけ
 
+## 指定ブランチ名
+feature/issue-1-search
+
 共通ファイルや他チームのファイルは変更しません。"
 
 gh issue create --title "会議室で絞り込めるようにする" --body "## やりたいこと
@@ -47,6 +50,9 @@ gh issue create --title "会議室で絞り込めるようにする" --body "## 
 ## 触るファイル
 features/issue-2-room-filter.js だけ
 
+## 指定ブランチ名
+feature/issue-2-room-filter
+
 共通ファイルや他チームのファイルは変更しません。"
 
 gh issue create --title "ダークモードを付ける" --body "## やりたいこと
@@ -62,6 +68,9 @@ gh issue create --title "ダークモードを付ける" --body "## やりたい
 
 ## 触るファイル
 features/issue-3-dark-mode.js だけ
+
+## 指定ブランチ名
+feature/issue-3-dark-mode
 
 共通ファイルや他チームのファイルは変更しません。"
 
@@ -80,6 +89,9 @@ gh issue create --title "予約をキャンセルできるようにする" --bod
 ## 触るファイル
 features/issue-4-cancel.js だけ
 
+## 指定ブランチ名
+feature/issue-4-cancel
+
 共通ファイルや他チームのファイルは変更しません。"
 
 gh issue create --title "今月の予約件数を表示する" --body "## やりたいこと
@@ -95,6 +107,9 @@ gh issue create --title "今月の予約件数を表示する" --body "## やり
 
 ## 触るファイル
 features/issue-5-monthly-count.js だけ
+
+## 指定ブランチ名
+feature/issue-5-monthly-count
 
 共通ファイルや他チームのファイルは変更しません。"
 ```

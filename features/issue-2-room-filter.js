@@ -1,6 +1,7 @@
 /*
  * Issue #2：会議室で絞り込めるようにする
  * 担当：Bチーム
+ * 指定ブランチ：feature/issue-2-room-filter
  *
  * 完了条件：Issue本文の動作をブラウザで確認できること。
  * 編集範囲：features/issue-2-room-filter.js

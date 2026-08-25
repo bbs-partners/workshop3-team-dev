@@ -97,7 +97,7 @@ Issue を起点に、ブランチを分けて、PRを出して、レビューし
 
 作業の流れ：
 1. **Issues タブ**からチームの担当Issueを開き、Assignees にチーム全員を設定
-2. チーム内の実装担当が `feature/...` ブランチを切る
+2. 下の表にある**指定ブランチ名をそのまま使って**ブランチを切る
 3. 実装して、PRを出す（本文に `Closes #1` のように担当Issue番号を書く）
 4. 実装担当以外のメンバーがレビュー・承認と動作確認を行う
 5. マージして、**Issueが自動で閉じる**ことと公開画面の動作を確認
@@ -108,17 +108,17 @@ Issue を起点に、ブランチを分けて、PRを出して、レビューし
 
 1チームで1つのIssueを担当します。
 
-| チーム | 担当Issue | 編集するファイル |
-|-------|----------|------------------|
-| A | #1 | `features/issue-1-search.js` |
-| B | #2 | `features/issue-2-room-filter.js` |
-| C | #3 | `features/issue-3-dark-mode.js` |
-| D | #4 | `features/issue-4-cancel.js` |
-| E | #5 | `features/issue-5-monthly-count.js` |
+| チーム | 担当Issue | 指定ブランチ名 | 編集するファイル |
+|-------|----------|----------------|------------------|
+| A | #1 | `feature/issue-1-search` | `features/issue-1-search.js` |
+| B | #2 | `feature/issue-2-room-filter` | `features/issue-2-room-filter.js` |
+| C | #3 | `feature/issue-3-dark-mode` | `features/issue-3-dark-mode.js` |
+| D | #4 | `feature/issue-4-cancel` | `features/issue-4-cancel.js` |
+| E | #5 | `feature/issue-5-monthly-count` | `features/issue-5-monthly-count.js` |
 
 2名チームになった場合は、隣のチームがPRレビューを補助します。
 
-各チームは、表にある**専用ファイルだけ**を編集します。`index.html`、`style.css`、`app.js`、他チームのファイルは変更しません。担当外の変更はCIが検知します。
+各チームは、表にある**指定ブランチ名をそのまま使い、専用ファイルだけ**を編集します。`index.html`、`style.css`、`app.js`、他チームのファイルは変更しません。ブランチ名の違いと担当外の変更はCIが検知します。
 
 Claude Codeへの依頼例：
 
