@@ -12,6 +12,31 @@
 (function registerFeature(root) {
   root.WorkshopFeatures = root.WorkshopFeatures || {};
   root.WorkshopFeatures['issue-1'] = function setupIssue1(app) {
-    // TODO：ここにIssue #1の実装を書く
+    let keyword = '';
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'form__row';
+
+    const label = document.createElement('label');
+    label.className = 'form__label';
+    label.setAttribute('for', 'issue1SearchInput');
+    label.textContent = '検索';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'issue1SearchInput';
+    input.className = 'form__input';
+    input.placeholder = '予約者名で検索';
+
+    input.addEventListener('input', () => {
+      keyword = input.value.trim();
+      app.registerFilter('issue-1', reservation => reservation.user.includes(keyword));
+    });
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(input);
+    app.mount('listControls', wrapper);
+
+    app.registerFilter('issue-1', reservation => reservation.user.includes(keyword));
   };
 })(typeof window !== 'undefined' ? window : globalThis);
