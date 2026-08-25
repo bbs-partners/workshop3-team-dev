@@ -9,8 +9,14 @@
 <body>
   <header class="header">
     <div class="header__inner">
-      <h1 class="header__title">会議室予約システム</h1>
-      <p class="header__sub">第2回研修で要件定義したアプリです</p>
+      <div>
+        <h1 class="header__title">会議室予約システム</h1>
+        <p class="header__sub">第2回研修で要件定義したアプリです</p>
+      </div>
+      <div class="header__features">
+        <div id="headerStats"></div>
+        <div id="headerActions"></div>
+      </div>
     </div>
   </header>
 
@@ -49,17 +55,11 @@
     </section>
 
     <!-- ========== 予約一覧 ========== -->
-    <!--
-      ⚠️ ワーク①（事故を体験する）では、全員がこのセクションを編集します。
-         各自が別々の変更を加えてpushすると、必ず衝突（コンフリクト）が起きます。
-         それが今日の最初の学びです。
-    -->
+    <!-- ワーク①はpractice.mdだけを編集します。アプリ本体は変更しません。 -->
     <section class="card">
       <h2 class="card__title">予約一覧</h2>
 
-      <!-- TODO-1: ここに「検索ボックス」を追加する（担当：Aさん） -->
-
-      <!-- TODO-2: ここに「会議室で絞り込むフィルター」を追加する（担当：Bさん） -->
+      <div id="listControls" class="feature-controls"></div>
 
       <div id="reservationList" class="list">
         <!-- JavaScriptで予約カードが描画されます -->
@@ -72,5 +72,10 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="features/issue-1-search.js"></script>
+  <script src="features/issue-2-room-filter.js"></script>
+  <script src="features/issue-3-dark-mode.js"></script>
+  <script src="features/issue-4-cancel.js"></script>
+  <script src="features/issue-5-monthly-count.js"></script>
 </body>
 </html>
