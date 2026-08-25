@@ -14,6 +14,9 @@ let reservations = [
 ];
 let nextId = 4;
 
+// ---------- キャンセル履歴（メモリ上・ブラウザを閉じると消えます） ----------
+let cancelledReservations = [];
+
 // ---------- 時刻の選択肢を作る（30分単位・9:00〜19:00） ----------
 function buildTimeOptions() {
   const times = [];
@@ -92,18 +95,36 @@ function renderList() {
         <span class="reservation__time">${r.date}　${r.start} 〜 ${r.end}</span>
         <span class="reservation__user">予約者: ${r.user}</span>
       </div>
-      <!-- TODO-4: ここに「キャンセルボタン」を追加する（担当：Dさん） -->
+      <button class="btn btn--danger" onclick="cancelReservation(${r.id})">キャンセル</button>
     </div>
   `).join('');
 }
 
 // ==========================================================
 // TODO-4: キャンセル機能（担当：Dさん）
-//   下の関数を完成させ、上の renderList にボタンを追加してください。
 // ==========================================================
-// function cancelReservation(id) {
-//   ここに処理を書く
-// }
+function cancelReservation(id) {
+  const target = reservations.find(r => r.id === id);
+  if (!target) return;
+
+  const inputName = prompt('本人確認のため、予約者名を入力してください');
+  if (inputName === null) return;
+  if (inputName.trim() !== target.user) {
+    showMessage('予約者名が一致しないため、キャンセルできません', 'error');
+    return;
+  }
+
+  const confirmed = confirm(
+    `${target.room}　${target.date} ${target.start}〜${target.end} の予約を本当にキャンセルしますか？`
+  );
+  if (!confirmed) return;
+
+  reservations = reservations.filter(r => r.id !== id);
+  cancelledReservations.push({ ...target, cancelledAt: new Date().toISOString() });
+
+  showMessage('予約をキャンセルしました', 'success');
+  renderList();
+}
 
 // ==========================================================
 // TODO-5: 予約が入っている日を数える機能（担当：Eさん）
