@@ -44,15 +44,29 @@ workshop3-team-dev/
 ここでは流れだけ示します。
 
 1. **GitHubアカウントを作る**（持っている人は不要）
-2. **Gitをインストールする**
-3. **GitHub CLI で認証する** — `gh auth login`
-4. **このリポジトリを自分のPCに取ってくる（clone）**
-5. **`members/` に自分のGitHubユーザー名またはニックネームのファイルを作る**
-6. **変更を記録して、GitHubに送る（commit → push）**
+2. **リポジトリへの招待を承認する** — GitHubの通知またはメールから `Accept invitation`
+3. **Gitをインストールする**
+4. **GitHub CLI で認証する** — `gh auth login`
+5. **書き込み権限を確認する** — `viewerPermission` が `WRITE` であること
+6. **このリポジトリを自分のPCに取ってくる（clone）**
+7. **`members/` に自分のGitHubユーザー名またはニックネームのファイルを作る**
+8. **変更を記録して、GitHubに送る（commit → push）**
 
-### 手順5〜6のコマンド例
+> ⚠️ このリポジトリはpublicのため、招待を未承認でもcloneはできます。ただし、`WRITE`でなければpushできません。必ず権限確認を済ませてください。
+
+### 手順4〜8のコマンド例
 
 ```bash
+# 認証状態を確認
+gh auth status
+
+# WRITE と表示されることを確認
+gh repo view bbs-partners/workshop3-team-dev --json viewerPermission --jq .viewerPermission
+
+# リポジトリを取得して移動
+git clone https://github.com/bbs-partners/workshop3-team-dev.git
+cd workshop3-team-dev
+
 # GitHubユーザー名またはニックネームでファイルを作る（例：github-user）
 echo "github-user / よろしくお願いします" > members/github-user.md
 
@@ -80,14 +94,27 @@ Issue を起点に、ブランチを分けて、PRを出して、レビューし
 チーム開発の作法を使って、下の課題を分担して完成させます。
 
 作業の流れ：
-1. **Issues タブ**から自分の担当を選び、Assignees に自分を設定
-2. `feature/...` ブランチを切る
-3. 実装して、PRを出す（本文に `Closes #1` のように自分のIssue番号を書く）
-4. 仲間がレビュー・承認 → マージ → **Issueが自動で閉じる**
+1. **Issues タブ**からチームの担当Issueを開き、Assignees にチーム全員を設定
+2. チーム内の実装担当が `feature/...` ブランチを切る
+3. 実装して、PRを出す（本文に `Closes #1` のように担当Issue番号を書く）
+4. 実装担当以外の2人がレビュー・承認と動作確認を行う
+5. マージして、**Issueが自動で閉じる**ことと公開画面の動作を確認
 
 ---
 
 ## 完成させる課題（Issue #1〜#5）
+
+1チームで1つのIssueを担当します。
+
+| チーム | 担当Issue | チーム内の役割 |
+|-------|----------|----------------|
+| A | #1 | 実装・PRレビュー・動作確認 |
+| B | #2 | 実装・PRレビュー・動作確認 |
+| C | #3 | 実装・PRレビュー・動作確認 |
+| D | #4 | 実装・PRレビュー・動作確認 |
+| E | #5 | 実装・PRレビュー・動作確認 |
+
+2名チームになった場合は、隣のチームがPRレビューを補助します。
 
 | No | やること | ファイル |
 |----|---------|---------|
